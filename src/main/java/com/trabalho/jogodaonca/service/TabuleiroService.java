@@ -22,6 +22,10 @@ public class TabuleiroService {
         return tabuleiroRepository.save(tabuleiro);
     }
 
+    public Tabuleiro atualizar(Tabuleiro tabuleiro) {
+        return tabuleiroRepository.save(tabuleiro);
+    }
+
     public List<Tabuleiro> buscarTodos() {
         return tabuleiroRepository.findAll();
     }
@@ -30,15 +34,15 @@ public class TabuleiroService {
         return tabuleiroRepository.findById(id);
     }
 
-    public void deletarPorId(Long id){
+    public Optional<Tabuleiro> buscarPorNome(String nameTabuleiro) {
+        return tabuleiroRepository.findByNameTabuleiroContainingIgnoreCase(nameTabuleiro);
+    }
+
+    public void deletarPorId(Long id) {
         tabuleiroRepository.deleteById(id);
     }
 
-    public Tabuleiro atualizar(Tabuleiro tabuleiro) {
-        return tabuleiroRepository.save(tabuleiro);
-    }
-
-    public Optional<Tabuleiro> buscarPorNome(String nome) {
-        return tabuleiroRepository.findByNameTabuleiroContainingIgnoreCase(nome);
+    public void deletarPorNome(String nameTabuleiro) {
+        tabuleiroRepository.deleteByName(nameTabuleiro);
     }
 }

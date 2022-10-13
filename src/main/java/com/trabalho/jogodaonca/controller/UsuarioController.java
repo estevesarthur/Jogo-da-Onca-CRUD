@@ -30,4 +30,7 @@ public class UsuarioController {
                 .body(usuarioService.cadastrarUsuario(usuario));
     }
 
+    //Verificar se precisa e se precisar, como colocar para guardar a primeira senha de cadastro(repetir a senha), 
+    //guardar o e-mail, e do esqueci a senha
+
 }

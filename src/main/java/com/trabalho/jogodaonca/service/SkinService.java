@@ -22,6 +22,10 @@ public class SkinService {
         return skinRepository.save(skin);
     }
 
+    public Skin atualizar(Skin skin) {
+        return skinRepository.save(skin);
+    }
+
     public List<Skin> buscarTodos() {
         return skinRepository.findAll();
     }
@@ -30,15 +34,15 @@ public class SkinService {
         return skinRepository.findById(id);
     }
 
-    public void deletarPorId(Long id){
+    public Optional<Skin> buscarPorNome(String nome) {
+        return skinRepository.findByNameSkinContainingIgnoreCase(nome);
+    }
+
+    public void deletarPorId(Long id) {
         skinRepository.deleteById(id);
     }
 
-    public Skin atualizar(Skin skin) {
-        return skinRepository.save(skin);
-    }
-
-    public Optional<Skin> buscarPorNome(String nome) {
-        return skinRepository.findByNameSkinContainingIgnoreCase(nome);
+    public void deletarPorNome(String nameSkin) {
+        skinRepository.deleteByName(nameSkin);
     }
 }

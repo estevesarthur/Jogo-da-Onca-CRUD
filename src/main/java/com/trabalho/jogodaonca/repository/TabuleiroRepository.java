@@ -9,4 +9,6 @@ import java.util.Optional;
 @Repository
 public interface TabuleiroRepository extends JpaRepository <Tabuleiro, Long> {
     Optional<Tabuleiro> findByNameTabuleiroContainingIgnoreCase(String nome);
+
+    void deleteByName(String nameTabuleiro);
 }
