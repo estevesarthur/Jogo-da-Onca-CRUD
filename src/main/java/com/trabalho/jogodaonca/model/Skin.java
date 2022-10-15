@@ -17,15 +17,6 @@ public class Skin {
     @Size(max = 200)
     private String imgSkin;
 
-    public Skin() {
-    }
-
-    public Skin(long id, @Size(max = 45) String nameSkin, @Size(max = 200) String imgSkin) {
-        this.id = id;
-        this.nameSkin = nameSkin;
-        this.imgSkin = imgSkin;
-    }
-
     public Long getId() {
         return id;
     }

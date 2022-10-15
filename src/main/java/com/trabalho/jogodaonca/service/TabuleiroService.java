@@ -41,8 +41,4 @@ public class TabuleiroService {
     public void deletarPorId(Long id) {
         tabuleiroRepository.deleteById(id);
     }
-
-    public void deletarPorNome(String nameTabuleiro) {
-        tabuleiroRepository.deleteByName(nameTabuleiro);
-    }
 }

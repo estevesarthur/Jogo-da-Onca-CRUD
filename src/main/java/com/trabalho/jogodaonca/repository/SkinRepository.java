@@ -9,6 +9,4 @@ import java.util.Optional;
 @Repository
 public interface SkinRepository extends JpaRepository <Skin, Long> {
     Optional<Skin> findByNameSkinContainingIgnoreCase(String nome);
-
-    void deleteByName(String nameSkin);
 }

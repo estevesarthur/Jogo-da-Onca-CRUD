@@ -10,6 +10,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BannerRepository extends JpaRepository <Banner, Long> {
     Optional<Banner> findByNameBannerContainingIgnoreCase(String nameBanner);
-
-    void deleteByName(String nameBanner);
 }

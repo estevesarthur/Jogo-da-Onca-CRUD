@@ -22,14 +22,12 @@ public class BannerController {
         this.bannerService = bannerService;
     }
 
-    @RequestMapping("/cadastrar")
-    @PostMapping
+    @PostMapping("/banner/cadastrar")
     public ResponseEntity<Banner> cadastrar(@RequestBody Banner banner) {
         return ResponseEntity.status(HttpStatus.CREATED).body(bannerService.cadastrar(banner));
     }
 
-    @RequestMapping("/atualizar")
-    @PutMapping
+    @PutMapping("/banner/atualizar/{id}")
     public ResponseEntity<Banner> atualizar(@RequestBody Banner banner) {
         ResponseEntity<Banner> response = null;
         if (banner.getId() != null && bannerService.buscarPorId(banner.getId()).isPresent()
@@ -41,13 +39,11 @@ public class BannerController {
         return response;
     }
 
-    @RequestMapping("/buscar/todos")
-    @GetMapping
+    @GetMapping("/banner/todos")
     public ResponseEntity<List<Banner>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(bannerService.buscarTodos());
     }
 
-    @RequestMapping("/buscar/id")
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Banner>> buscarPorId(@PathVariable Long id) {
         ResponseEntity<Optional<Banner>> response = null;
@@ -59,7 +55,6 @@ public class BannerController {
         return response;
     }
 
-    @RequestMapping("/buscar/nome")
     @GetMapping("/{nameBanner}")
     public ResponseEntity<Optional<Banner>> buscarPorNome(@PathVariable String nameBanner) {
         ResponseEntity<Optional<Banner>> response = null;
@@ -71,7 +66,6 @@ public class BannerController {
         return response;
     }
 
-    @RequestMapping("/deletar/id")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deletarPorId(@PathVariable Long id) {
         ResponseEntity<String> response = null;

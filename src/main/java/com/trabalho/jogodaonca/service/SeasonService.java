@@ -40,8 +40,4 @@ public class SeasonService {
     public void deletarPorId(Long id) {
         seasonRepository.deleteById(id);
     }
-
-    public void deletarPorNome(String nameSeason) {
-        seasonRepository.deleteByName(nameSeason);
-    }
 }

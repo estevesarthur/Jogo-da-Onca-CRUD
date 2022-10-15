@@ -24,20 +24,6 @@ public class Usuario {
 
     private int nroLose;
 
-    public Usuario() {
-    }
-
-    public Usuario(long id, @Size(max = 45) String nome, String email, String senha, String icone, int nroWin,
-            int nroLose) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.icone = icone;
-        this.nroWin = nroWin;
-        this.nroLose = nroLose;
-    }
-
     public long getId() {
         return id;
     }

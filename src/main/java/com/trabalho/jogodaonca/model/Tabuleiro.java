@@ -17,15 +17,6 @@ public class Tabuleiro {
     @Size(max = 45)
     private String nameTabuleiro;
 
-    public Tabuleiro() {
-    }
-
-    public Tabuleiro(long id, @Size(max = 200) String imgTabuleiro, @Size(max = 45) String nameTabuleiro) {
-        this.id = id;
-        this.imgTabuleiro = imgTabuleiro;
-        this.nameTabuleiro = nameTabuleiro;
-    }
-
     public Long getId() {
         return id;
     }

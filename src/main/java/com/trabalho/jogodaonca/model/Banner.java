@@ -17,15 +17,6 @@ public class Banner {
     @Size(max = 45)
     private String nameBanner;
 
-    public Banner() {
-    }
-
-    public Banner(long id, @Size(max = 200) String imgBanner, @Size(max = 45) String nameBanner) {
-        this.id = id;
-        this.imgBanner = imgBanner;
-        this.nameBanner = nameBanner;
-    }
-
     public Long getId() {
         return id;
     }

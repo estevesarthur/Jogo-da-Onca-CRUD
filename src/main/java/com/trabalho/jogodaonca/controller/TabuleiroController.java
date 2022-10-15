@@ -23,14 +23,12 @@ public class TabuleiroController {
         this.tabuleiroService = tabuleiroService;
     }
 
-    @RequestMapping("/cadastrar")
-    @PostMapping
+    @PostMapping("/tabuleiro/cadastrar")
     public ResponseEntity<Tabuleiro> cadastrar(@RequestBody Tabuleiro tabuleiro) {
         return ResponseEntity.status(HttpStatus.CREATED).body(tabuleiroService.cadastrar(tabuleiro));
     }
 
-    @RequestMapping("/atualizar")
-    @PutMapping
+    @PutMapping("/tabuleiro/atualizar/{id}")
     public ResponseEntity<Tabuleiro> atualizar(@RequestBody Tabuleiro tabuleiro) {
         ResponseEntity<Tabuleiro> response = null;
         if (tabuleiro.getId() != null && tabuleiroService.buscarPorId(tabuleiro.getId()).isPresent()
@@ -43,13 +41,11 @@ public class TabuleiroController {
         return response;
     }
 
-    @RequestMapping("/buscar/todos")
-    @GetMapping
+    @GetMapping("/tabuleiro/todos")
     public ResponseEntity<List<Tabuleiro>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(tabuleiroService.buscarTodos());
     }
 
-    @RequestMapping("/buscar/id")
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Tabuleiro>> buscarPorId(@PathVariable Long id) {
         ResponseEntity<Optional<Tabuleiro>> response = null;
@@ -61,7 +57,6 @@ public class TabuleiroController {
         return response;
     }
 
-    @RequestMapping("/buscar/nome")
     @GetMapping("/{nameTabuleiro}")
     public ResponseEntity<Optional<Tabuleiro>> buscarPorNome(@PathVariable String nameTabuleiro) {
         ResponseEntity<Optional<Tabuleiro>> response = null;
@@ -73,25 +68,11 @@ public class TabuleiroController {
         return response;
     }
 
-    @RequestMapping("/deletar/id")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deletarPorId(@PathVariable Long id) {
         ResponseEntity<String> response = null;
         if (tabuleiroService.buscarPorId(id).isPresent()) {
             tabuleiroService.deletarPorId(id);
-            response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Tabuleiro deletado com sucesso!!");
-        } else {
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        return response;
-    }
-
-    @RequestMapping("/deletar/nome")
-    @DeleteMapping("/{nome}")
-    public ResponseEntity<String> deletarPorNome(@PathVariable String nameTabuleiro) {
-        ResponseEntity<String> response = null;
-        if (tabuleiroService.buscarPorNome(nameTabuleiro).isPresent()) {
-            tabuleiroService.deletarPorNome(nameTabuleiro);
             response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Tabuleiro deletado com sucesso!!");
         } else {
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();

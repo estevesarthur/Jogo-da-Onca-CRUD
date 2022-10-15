@@ -40,9 +40,4 @@ public class BannerService {
     public void deletarPorId(Long id) {
         bannerRepository.deleteById(id);
     }
-
-    public void deletarPorNome(String nameBanner) {
-        bannerRepository.deleteByName(nameBanner);
-    }
-
 }

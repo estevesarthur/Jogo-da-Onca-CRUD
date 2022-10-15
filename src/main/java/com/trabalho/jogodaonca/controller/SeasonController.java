@@ -23,14 +23,12 @@ public class SeasonController {
         this.seasonService = seasonService;
     }
 
-    @RequestMapping("/cadastrar")
-    @PostMapping
+    @PostMapping("/season/cadastrar")
     public ResponseEntity<Season> cadastrar(@RequestBody Season season) {
         return ResponseEntity.status(HttpStatus.CREATED).body(seasonService.cadastrar(season));
     }
 
-    @RequestMapping("/atualizar")
-    @PutMapping
+    @PutMapping("/season/atualizar/{id}")
     public ResponseEntity<Season> atualizar(@RequestBody Season season) {
         ResponseEntity<Season> response = null;
         if (season.getId() != null && seasonService.buscarPorId(season.getId()).isPresent()
@@ -42,13 +40,11 @@ public class SeasonController {
         return response;
     }
 
-    @RequestMapping("/buscar/todos")
-    @GetMapping
+    @GetMapping("/season/todos")
     public ResponseEntity<List<Season>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(seasonService.buscarTodos());
     }
 
-    @RequestMapping("/buscar/id")
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Season>> buscarPorId(@PathVariable Long id) {
         ResponseEntity<Optional<Season>> response = null;
@@ -60,7 +56,6 @@ public class SeasonController {
         return response;
     }
 
-    @RequestMapping("/buscar/nome")
     @GetMapping("/{nameSeason}")
     public ResponseEntity<Optional<Season>> buscarPorNome(@PathVariable String nameSeason) {
         ResponseEntity<Optional<Season>> response = null;
@@ -72,25 +67,11 @@ public class SeasonController {
         return response;
     }
 
-    @RequestMapping("/deletar/id")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deletarporId(@PathVariable Long id) {
         ResponseEntity<String> response = null;
         if (seasonService.buscarPorId(id).isPresent()) {
             seasonService.deletarPorId(id);
-            response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Season deletada com sucesso!!");
-        } else {
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        return response;
-    }
-
-    @RequestMapping("/deletar/nome")
-    @DeleteMapping("/{nameSeason}")
-    public ResponseEntity<String> deletarPorNome(@PathVariable String nameSeason) {
-        ResponseEntity<String> response = null;
-        if (seasonService.buscarPorNome(nameSeason).isPresent()) {
-            seasonService.deletarPorNome(nameSeason);
             response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Season deletada com sucesso!!");
         } else {
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();

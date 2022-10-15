@@ -11,16 +11,6 @@ public class UsuarioLogin {
 
     private String token;
 
-    public UsuarioLogin() {
-    }
-
-    public UsuarioLogin(String nome, String email, String senha, String token) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.token = token;
-    }
-
     public String getNome() {
         return nome;
     }

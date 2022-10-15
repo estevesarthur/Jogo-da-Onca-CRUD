@@ -41,8 +41,4 @@ public class SkinService {
     public void deletarPorId(Long id) {
         skinRepository.deleteById(id);
     }
-
-    public void deletarPorNome(String nameSkin) {
-        skinRepository.deleteByName(nameSkin);
-    }
 }

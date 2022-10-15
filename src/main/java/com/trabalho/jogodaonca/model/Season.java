@@ -30,19 +30,6 @@ public class Season {
     @ManyToOne
     private Skin skinId;
 
-    public Season() {
-    }
-
-    public Season(long id, @Size(max = 45) String nameSeason, Date inicio, Date fim, Tabuleiro tabuleiroId,
-            Skin skinId) {
-        this.id = id;
-        this.nameSeason = nameSeason;
-        this.inicio = inicio;
-        this.fim = fim;
-        this.tabuleiroId = tabuleiroId;
-        this.skinId = skinId;
-    }
-
     public Long getId() {
         return id;
     }
