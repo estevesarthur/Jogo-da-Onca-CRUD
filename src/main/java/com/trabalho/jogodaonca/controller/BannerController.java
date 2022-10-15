@@ -83,17 +83,4 @@ public class BannerController {
         }
         return response;
     }
-
-    @RequestMapping("/deletar/nome")
-    @DeleteMapping("/{nameBanner}")
-    public ResponseEntity<String> deletarPorNome(@PathVariable String nameBanner) {
-        ResponseEntity<String> response = null;
-        if (bannerService.buscarPorNome(nameBanner).isPresent()) {
-            bannerService.deletarPorNome(nameBanner);
-            response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Banner deletado com sucesso!!");
-        } else {
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        return response;
-    }
 }
