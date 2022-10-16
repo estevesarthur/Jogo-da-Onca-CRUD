@@ -12,7 +12,7 @@ public class Usuario {
     private long id;
 
     @Size(max = 45)
-    private String nome;
+    private String nameUsuario;
 
     private String email;
 
@@ -33,11 +33,11 @@ public class Usuario {
     }
 
     public String getNome() {
-        return nome;
+        return nameUsuario;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nameUsuario = nome;
     }
 
     public String getEmail() {
@@ -79,5 +79,4 @@ public class Usuario {
     public void setNroLose(int nroLose) {
         this.nroLose = nroLose;
     }
-
 }

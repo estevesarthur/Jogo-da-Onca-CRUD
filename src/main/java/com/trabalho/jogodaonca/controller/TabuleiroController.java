@@ -23,12 +23,12 @@ public class TabuleiroController {
         this.tabuleiroService = tabuleiroService;
     }
 
-    @PostMapping("/tabuleiro/cadastrar")
+    @PostMapping("/cadastrar")
     public ResponseEntity<Tabuleiro> cadastrar(@RequestBody Tabuleiro tabuleiro) {
         return ResponseEntity.status(HttpStatus.CREATED).body(tabuleiroService.cadastrar(tabuleiro));
     }
 
-    @PutMapping("/tabuleiro/atualizar/{id}")
+    @PutMapping("/atualizar/{id}")
     public ResponseEntity<Tabuleiro> atualizar(@RequestBody Tabuleiro tabuleiro) {
         ResponseEntity<Tabuleiro> response = null;
         if (tabuleiro.getId() != null && tabuleiroService.buscarPorId(tabuleiro.getId()).isPresent()
@@ -41,12 +41,12 @@ public class TabuleiroController {
         return response;
     }
 
-    @GetMapping("/tabuleiro/todos")
+    @GetMapping("/buscar/todos")
     public ResponseEntity<List<Tabuleiro>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(tabuleiroService.buscarTodos());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar/{id}")
     public ResponseEntity<Optional<Tabuleiro>> buscarPorId(@PathVariable Long id) {
         ResponseEntity<Optional<Tabuleiro>> response = null;
         try {
@@ -57,7 +57,7 @@ public class TabuleiroController {
         return response;
     }
 
-    @GetMapping("/{nameTabuleiro}")
+    @GetMapping("/buscar/{nameTabuleiro}")
     public ResponseEntity<Optional<Tabuleiro>> buscarPorNome(@PathVariable String nameTabuleiro) {
         ResponseEntity<Optional<Tabuleiro>> response = null;
         try {
@@ -68,7 +68,7 @@ public class TabuleiroController {
         return response;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar/{id}")
     public ResponseEntity<String> deletarPorId(@PathVariable Long id) {
         ResponseEntity<String> response = null;
         if (tabuleiroService.buscarPorId(id).isPresent()) {

@@ -1,6 +1,8 @@
-package com.trabalho.jogodaonca.seguranca;
+/* package com.trabalho.jogodaonca.seguranca;
 
-import com.trabalho.jogodaonca.model.Usuario;
+//import com.trabalho.jogodaonca.model.Usuario;
+import com.trabalho.jogodaonca.model.UsuarioAdmin;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -14,8 +16,8 @@ public class UserDetailsImpl implements UserDetails{
 	private String password;
 	private List<GrantedAuthority> authorities;
 
-	public UserDetailsImpl(Usuario user) {
-		this.userName = user.getEmail();
+	public UserDetailsImpl(UsuarioAdmin user) {
+		this.userName = user.getNome();
 		this.password = user.getSenha();
 	}
 
@@ -55,4 +57,4 @@ public class UserDetailsImpl implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
-}
+} */

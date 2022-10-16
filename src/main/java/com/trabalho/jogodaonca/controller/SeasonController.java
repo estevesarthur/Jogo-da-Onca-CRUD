@@ -23,12 +23,12 @@ public class SeasonController {
         this.seasonService = seasonService;
     }
 
-    @PostMapping("/season/cadastrar")
+    @PostMapping("/cadastrar")
     public ResponseEntity<Season> cadastrar(@RequestBody Season season) {
         return ResponseEntity.status(HttpStatus.CREATED).body(seasonService.cadastrar(season));
     }
 
-    @PutMapping("/season/atualizar/{id}")
+    @PutMapping("/atualizar/{id}")
     public ResponseEntity<Season> atualizar(@RequestBody Season season) {
         ResponseEntity<Season> response = null;
         if (season.getId() != null && seasonService.buscarPorId(season.getId()).isPresent()
@@ -40,12 +40,12 @@ public class SeasonController {
         return response;
     }
 
-    @GetMapping("/season/todos")
+    @GetMapping("/buscar/todos")
     public ResponseEntity<List<Season>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(seasonService.buscarTodos());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar/{id}")
     public ResponseEntity<Optional<Season>> buscarPorId(@PathVariable Long id) {
         ResponseEntity<Optional<Season>> response = null;
         try {
@@ -56,7 +56,7 @@ public class SeasonController {
         return response;
     }
 
-    @GetMapping("/{nameSeason}")
+    @GetMapping("/buscar/{nameSeason}")
     public ResponseEntity<Optional<Season>> buscarPorNome(@PathVariable String nameSeason) {
         ResponseEntity<Optional<Season>> response = null;
         try {
@@ -67,7 +67,7 @@ public class SeasonController {
         return response;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar/{id}")
     public ResponseEntity<String> deletarporId(@PathVariable Long id) {
         ResponseEntity<String> response = null;
         if (seasonService.buscarPorId(id).isPresent()) {

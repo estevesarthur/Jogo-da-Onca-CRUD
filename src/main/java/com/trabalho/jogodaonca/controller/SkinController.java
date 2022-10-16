@@ -23,12 +23,12 @@ public class SkinController {
         this.skinService = skinService;
     }
 
-    @PostMapping("/skin/cadastrar")
+    @PostMapping("/cadastrar")
     public ResponseEntity<Skin> cadastrar(@RequestBody Skin skin) {
         return ResponseEntity.status(HttpStatus.CREATED).body(skinService.cadastrar(skin));
     }
 
-    @PutMapping("/skin/atualizar/{id}")
+    @PutMapping("/atualizar/{id}")
     public ResponseEntity<Skin> atualizar(@RequestBody Skin skin) {
         ResponseEntity<Skin> response = null;
         if (skin.getId() != null && skinService.buscarPorId(skin.getId()).isPresent()
@@ -40,12 +40,12 @@ public class SkinController {
         return response;
     }
 
-    @GetMapping("/skin/todos")
+    @GetMapping("/buscar/todos")
     public ResponseEntity<List<Skin>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(skinService.buscarTodos());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar/{id}")
     public ResponseEntity<Optional<Skin>> buscarPorId(@PathVariable Long id) {
         ResponseEntity<Optional<Skin>> response = null;
         try {
@@ -56,7 +56,7 @@ public class SkinController {
         return response;
     }
 
-    @GetMapping("/{nameSkin}")
+    @GetMapping("/buscar/{nameSkin}")
     public ResponseEntity<Optional<Skin>> buscarPorNome(@PathVariable String nameSkin) {
         ResponseEntity<Optional<Skin>> response = null;
         try {
@@ -67,7 +67,7 @@ public class SkinController {
         return response;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar/{id}")
     public ResponseEntity<String> deletarPorId(@PathVariable Long id) {
         ResponseEntity<String> response = null;
         if (skinService.buscarPorId(id).isPresent()) {

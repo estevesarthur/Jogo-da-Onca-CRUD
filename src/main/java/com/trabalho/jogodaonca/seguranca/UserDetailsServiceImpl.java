@@ -1,7 +1,8 @@
-package com.trabalho.jogodaonca.seguranca;
+/* package com.trabalho.jogodaonca.seguranca;
 
-import com.trabalho.jogodaonca.model.Usuario;
-import com.trabalho.jogodaonca.repository.UsuarioRepository;
+//import com.trabalho.jogodaonca.model.Usuario;
+import com.trabalho.jogodaonca.model.UsuarioAdmin;
+import com.trabalho.jogodaonca.repository.UsuarioAdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,14 +15,14 @@ import java.util.Optional;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
-	private UsuarioRepository userRepository;
+	private UsuarioAdminRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-		Optional<Usuario> user = userRepository.findByEmail(userName);
+		Optional<UsuarioAdmin> user = userRepository.findByOptional(userName);
 		user.orElseThrow(() -> new UsernameNotFoundException(userName + " not found."));
 
 		return user.map(UserDetailsImpl::new).get();
 	}
-}
+} */

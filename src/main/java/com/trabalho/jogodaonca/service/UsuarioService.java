@@ -1,51 +1,44 @@
 package com.trabalho.jogodaonca.service;
 
 import com.trabalho.jogodaonca.model.Usuario;
-import com.trabalho.jogodaonca.model.UsuarioLogin;
 import com.trabalho.jogodaonca.repository.UsuarioRepository;
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.nio.charset.Charset;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UsuarioService {
 
-    @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public Usuario cadastrarUsuario(Usuario usuario) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    @Autowired
+    public UsuarioService(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 
-        String senhaEncoder = encoder.encode(usuario.getSenha());
-        usuario.setSenha(senhaEncoder);
-
+    public Usuario cadastrar(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
 
-    public Optional<UsuarioLogin> logar(Optional<UsuarioLogin> user) {
+    public Usuario atualizar(Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
 
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        Optional<Usuario> usuario = usuarioRepository.findByEmail(user.get().getEmail());
+    public List<Usuario> buscarTodos() {
+        return usuarioRepository.findAll();
+    }
 
-        if (usuario.isPresent()) {
-            if (encoder.matches(user.get().getSenha(), usuario.get().getSenha())) {
+    public Optional<Usuario> buscarPorId(Long id) {
+        return usuarioRepository.findById(id);
+    }
 
-                String auth = user.get().getEmail() + ":" + user.get().getSenha();
-                byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
-                String authHeader = "Basic " + new String(encodedAuth);
+    public Optional<Usuario> buscarPorNome(String nameUsuario) {
+        return usuarioRepository.findByNameUsuarioContainingIgnoreCase(nameUsuario);
+    }
 
-                user.get().setToken(authHeader);
-                user.get().setNome(usuario.get().getNome());
-                user.get().setSenha(usuario.get().getSenha());
-
-                return user;
-
-            }
-        }
-        return null;
+    public void deletarPorId(Long id) {
+        usuarioRepository.deleteById(id);
     }
 }
