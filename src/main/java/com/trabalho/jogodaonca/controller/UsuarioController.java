@@ -45,7 +45,7 @@ public class UsuarioController {
     public ResponseEntity<List<Usuario>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.buscarTodos());
     }
-
+    
     @GetMapping("/buscar/{id}")
     public ResponseEntity<Optional<Usuario>> buscarPorId(@PathVariable Long id) {
         ResponseEntity<Optional<Usuario>> response = null;
