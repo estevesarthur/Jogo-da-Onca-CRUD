@@ -1,4 +1,4 @@
-package com.trabalho.jogodaonca.controller;
+/* package com.trabalho.jogodaonca.controller;
 
 import com.trabalho.jogodaonca.model.Usuario;
 import com.trabalho.jogodaonca.service.UsuarioService;
@@ -80,3 +80,4 @@ public class UsuarioController {
         return response;
     }
 }
+ */

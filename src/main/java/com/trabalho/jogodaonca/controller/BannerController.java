@@ -39,7 +39,7 @@ public class BannerController {
         return response;
     }
 
-    @GetMapping("/buscar/todos")
+    @GetMapping("/buscar")
     public ResponseEntity<List<Banner>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(bannerService.buscarTodos());
     }

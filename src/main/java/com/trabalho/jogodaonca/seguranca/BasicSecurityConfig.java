@@ -20,7 +20,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		//auth.userDetailsService(userDetailsService);
-		auth.inMemoryAuthentication().withUser(User.withUsername("admin").password(passwordEncoder().encode("admin")).roles("SUPER"));
+		auth.inMemoryAuthentication().withUser(User.withUsername("admin").password(passwordEncoder().encode("admin")).roles("ADMIN"));
 
         //userDetailsService(userDetailsService)
         //.passwordEncoder(new BCryptPasswordEncoder());
@@ -36,6 +36,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/usuario/logar").permitAll()
 		.antMatchers("/usuario/cadastrar").permitAll()
+		.antMatchers("/skin/buscar").permitAll()
 		.anyRequest().authenticated()
 		.and().httpBasic()
 		.and().sessionManagement()

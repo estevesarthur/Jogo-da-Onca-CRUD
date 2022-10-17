@@ -40,7 +40,7 @@ public class SeasonController {
         return response;
     }
 
-    @GetMapping("/buscar/todos")
+    @GetMapping("/buscar")
     public ResponseEntity<List<Season>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(seasonService.buscarTodos());
     }

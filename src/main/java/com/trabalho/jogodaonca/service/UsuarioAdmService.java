@@ -30,7 +30,7 @@ public class UsuarioAdmService {
     
     public Optional<UsuarioAdmin> logar(Optional<UsuarioAdmin> user) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        Optional<UsuarioAdmin> usuarioLogin = usuarioRepository.findByOptional(user.get().getNomeAdmin());
+        Optional<UsuarioAdmin> usuarioLogin = usuarioRepository.findByNomeAdmin(user.get().getNomeAdmin());
 
         if (usuarioLogin.isPresent()) {
             if (encoder.matches(user.get().getSenha(), usuarioLogin.get().getSenha())) {

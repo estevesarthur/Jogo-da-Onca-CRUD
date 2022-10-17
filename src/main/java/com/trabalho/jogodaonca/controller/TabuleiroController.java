@@ -41,7 +41,7 @@ public class TabuleiroController {
         return response;
     }
 
-    @GetMapping("/buscar/todos")
+    @GetMapping("/buscar")
     public ResponseEntity<List<Tabuleiro>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(tabuleiroService.buscarTodos());
     }
