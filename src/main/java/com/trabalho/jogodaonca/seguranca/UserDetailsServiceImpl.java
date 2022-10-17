@@ -1,4 +1,4 @@
-/* package com.trabalho.jogodaonca.seguranca;
+package com.trabalho.jogodaonca.seguranca;
 
 //import com.trabalho.jogodaonca.model.Usuario;
 import com.trabalho.jogodaonca.model.UsuarioAdmin;
@@ -25,4 +25,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		return user.map(UserDetailsImpl::new).get();
 	}
-} */
+} 

@@ -1,4 +1,4 @@
-/* package com.trabalho.jogodaonca.seguranca;
+package com.trabalho.jogodaonca.seguranca;
 
 //import com.trabalho.jogodaonca.model.Usuario;
 import com.trabalho.jogodaonca.model.UsuarioAdmin;
@@ -17,7 +17,7 @@ public class UserDetailsImpl implements UserDetails{
 	private List<GrantedAuthority> authorities;
 
 	public UserDetailsImpl(UsuarioAdmin user) {
-		this.userName = user.getNome();
+		this.userName = user.getNomeAdmin();
 		this.password = user.getSenha();
 	}
 
@@ -57,4 +57,4 @@ public class UserDetailsImpl implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
-} */
+}
