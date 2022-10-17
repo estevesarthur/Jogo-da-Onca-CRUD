@@ -40,7 +40,7 @@ public class SkinController {
         return response;
     }
 
-    @GetMapping("/buscar/todos")
+    @GetMapping("/buscar")
     public ResponseEntity<List<Skin>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(skinService.buscarTodos());
     }

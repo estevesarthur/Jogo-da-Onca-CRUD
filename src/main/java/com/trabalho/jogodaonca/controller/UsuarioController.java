@@ -41,7 +41,7 @@ public class UsuarioController {
         return response;
     }
 
-    @GetMapping("/buscar/todos")
+    @GetMapping("/buscar")
     public ResponseEntity<List<Usuario>> buscarTodos() {
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.buscarTodos());
     }
