@@ -1,4 +1,4 @@
-/* package com.trabalho.jogodaonca.controller;
+package com.trabalho.jogodaonca.controller;
 
 //import com.trabalho.jogodaonca.model.Usuario;
 import com.trabalho.jogodaonca.model.UsuarioAdmin;
@@ -33,4 +33,3 @@ public class UsuarioAdminController {
     //Verificar se precisa e se precisar, como colocar para guardar a primeira senha de cadastro(repetir a senha), 
     //guardar o e-mail, e do esqueci a senha
 }
- */

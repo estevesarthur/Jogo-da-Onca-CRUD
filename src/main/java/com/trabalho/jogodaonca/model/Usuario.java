@@ -24,7 +24,7 @@ public class Usuario {
 
     private int nroLose;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -32,12 +32,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getNome() {
+    public String getNameUsuario() {
         return nameUsuario;
     }
 
-    public void setNome(String nome) {
-        this.nameUsuario = nome;
+    public void setNameUsuario(String nameUsuario) {
+        this.nameUsuario = nameUsuario;
     }
 
     public String getEmail() {

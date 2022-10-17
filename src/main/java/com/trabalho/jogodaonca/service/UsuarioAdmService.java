@@ -1,4 +1,4 @@
-/* package com.trabalho.jogodaonca.service;
+package com.trabalho.jogodaonca.service;
 
 //import com.trabalho.jogodaonca.model.Usuario;
 import com.trabalho.jogodaonca.model.UsuarioAdmin;
@@ -30,17 +30,17 @@ public class UsuarioAdmService {
     
     public Optional<UsuarioAdmin> logar(Optional<UsuarioAdmin> user) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        Optional<UsuarioAdmin> usuarioLogin = usuarioRepository.findByOptional(user.get().getNome());
+        Optional<UsuarioAdmin> usuarioLogin = usuarioRepository.findByOptional(user.get().getNomeAdmin());
 
         if (usuarioLogin.isPresent()) {
             if (encoder.matches(user.get().getSenha(), usuarioLogin.get().getSenha())) {
 
-                String auth = user.get().getNome() + ":" + user.get().getSenha();
+                String auth = user.get().getNomeAdmin() + ":" + user.get().getSenha();
                 byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
                 String authHeader = "Basic " + new String(encodedAuth);
 
                 user.get().setToken(authHeader);
-                user.get().setNome(usuarioLogin.get().getNome());
+                user.get().setNomeAdmin(usuarioLogin.get().getNomeAdmin());
                 user.get().setSenha(usuarioLogin.get().getSenha());
 
                 return user;
@@ -49,4 +49,3 @@ public class UsuarioAdmService {
         return null;
     }
 }
- */

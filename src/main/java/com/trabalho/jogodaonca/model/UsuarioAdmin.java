@@ -1,4 +1,4 @@
-/* package com.trabalho.jogodaonca.model;
+package com.trabalho.jogodaonca.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,13 +15,13 @@ public class UsuarioAdmin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String nome;
+    private String nomeAdmin;
 
     private String senha;
 
     private String token;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -29,12 +29,12 @@ public class UsuarioAdmin {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeAdmin() {
+        return nomeAdmin;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeAdmin(String nomeAdmin) {
+        this.nomeAdmin = nomeAdmin;
     }
 
     public String getSenha() {
@@ -53,4 +53,3 @@ public class UsuarioAdmin {
         this.token = token;
     }
 }
- */

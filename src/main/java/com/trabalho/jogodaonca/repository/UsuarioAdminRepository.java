@@ -1,4 +1,4 @@
-/* package com.trabalho.jogodaonca.repository;
+ package com.trabalho.jogodaonca.repository;
 
 import com.trabalho.jogodaonca.model.UsuarioAdmin;
 
@@ -11,4 +11,3 @@ import java.util.Optional;
 public interface UsuarioAdminRepository extends JpaRepository <UsuarioAdmin, Long> {
     public Optional<UsuarioAdmin> findByOptional(String usuario);
 }
- */
